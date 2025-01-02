@@ -9,9 +9,6 @@ COMPANY_NAME = "Tesla Inc"
 STOCK_API_KEY = os.getenv("STOCK_API_KEY")
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
-## STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-
 class ApiManager:
     def __init__(self):
         self.stock_params = {
@@ -35,8 +32,6 @@ class ApiManager:
         return response.json()
 
     def get_news_data(self):
-        ## STEP 2: Use https://newsapi.org
-        # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
         response = requests.get(url="https://newsapi.org/v2/everything", params=self.news_params)
         response.raise_for_status()
         return response.json()
